@@ -31,7 +31,7 @@ Product Manager
 
                         <tr>
                             <th>Description</th>
-                            <td>{{ $product->description }}</td>
+                            <td>{!! $product->description !!}</td>
                         </tr>
 
                         <tr>

@@ -17,6 +17,7 @@
                 <div class="header">
                     <h4 class="title">{{ $product->name }} Product Additional info</h4>
                     <p class="category">List of all products</p>
+                    <p align="right"><a href="{{ url('/admin/products') }}"><input type="button" class="btn " value="Back to Products"></a></p>
                     <p align="right"><a href="{{ url('/admin/productinfo/'.$product->id.'/create') }}"><input type="button" class="btn " value="Add New Product Info"></a></p>
                 </div>
                

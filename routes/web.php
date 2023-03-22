@@ -29,13 +29,13 @@ Route::prefix('admin')->group(function() {
 
     Route::middleware('auth:admin')->group(function() {
         // Dashboard
-       // Route::get('/', 'DashboardController@index');
         Route::get('/dashboard', [DashboardController::class, 'index']);
 
         // Products
         Route::resource('/products', 'App\Http\Controllers\ProductController');
-       // Route::resource('/productinfo/{id}', 'App\Http\Controllers\ProductInfoController');
-        //Route::resource('/products','ProductController');
+        Route::post('/subcat', [SubCategoryController::class, 'subCat']);
+        Route::post('ckeditor/upload', [ProductController::class, 'editiorUpload'])->name('ckeditor.image-upload');
+      
 
         // Orders
         Route::resource('/orders','App\Http\Controllers\OrderController');
@@ -62,9 +62,7 @@ Route::prefix('admin')->group(function() {
        Route::get('/productinfo/{id}/edit/{productid}', [ProductInfoController::class, 'edit'])->name('productinfo.edit');
        Route::post('/productinfo/{id}/update/{productid}', [ProductInfoController::class, 'update'])->name('productinfo.update');
        Route::delete('/productinfo/{id}', [ProductInfoController::class, 'destroy'])->name('productinfo.delete');
-
-
-       Route::post('/subcat', [SubCategoryController::class, 'subCat']);
+      
 
     });
 

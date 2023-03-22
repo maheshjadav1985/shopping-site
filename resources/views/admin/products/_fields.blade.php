@@ -45,7 +45,7 @@
 
 <div class="form-group {{ $errors->has('description') ? 'has-error' : '' }}">
     {{ Form::label('description', 'Description') }}
-    {{ Form::textarea('description',$product->description,['class'=>'form-control border-input','placeholder'=>'Description','required'=>'required']) }}
+    {{ Form::textarea('description',$product->description,['class'=>'ckeditor form-control border-input','placeholder'=>'Description','required'=>'required']) }}
     <span class="text-danger">{{ $errors->has('description') ? $errors->first('description') : '' }}</span>
 </div>
 
@@ -153,3 +153,17 @@
         });
         });    
     </script>
+
+<script src="//cdn.ckeditor.com/4.14.0/standard/ckeditor.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+       $('.ckeditor').ckeditor();
+    });
+</script>
+<script type="text/javascript">
+ 
+    CKEDITOR.replace('description', {
+        filebrowserUploadUrl: "{{route('ckeditor.image-upload', ['_token' => csrf_token() ])}}",
+        filebrowserUploadMethod: 'form'
+    });
+</script>

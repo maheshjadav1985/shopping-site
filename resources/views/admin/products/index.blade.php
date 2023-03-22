@@ -49,7 +49,6 @@
                             <th>Category Name</th>
                             <th>Name</th>
                             <th>Price</th>
-                            <th>Desc</th>
                             <th>Image</th>
                             <th>Actions</th>
                         </tr>
@@ -111,7 +110,6 @@
             {data: 'category_name', name: 'category name'},
             {data: 'name', name: 'name'},
             {data: 'price', name: 'price'},
-            {data: 'description', name: 'desc'},
             { data: 'image', name: 'image',
                     render: function( data, type, full, meta ) {
                        
