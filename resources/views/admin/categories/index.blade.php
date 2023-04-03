@@ -18,7 +18,26 @@
                     <p class="category">List of all categories</p>
                     <p align="right"><a href="{{ url('/admin/categories/create') }}"><input type="button" class="btn " value="Add New Category"></a></p>
                 </div>
-                
+                {!! Form::open(['url' => 'admin/searchcategories', 'method' => 'post']) !!}
+               <!-- {!! Form::open(['url' => 'admin/searchcategories', 'method' => 'POST']) !!} -->
+                <div class="column">
+                            <label for="from">Name:</label></br>
+                            <input name="name" type="text" placeholder="" class="form-control" value="">
+                        </div>
+                        <br>
+                        <div class="column">
+                            <label for="from">From Date:</label></br>
+                            <input class="form-control" name="from_date" type="date" > 
+                        </div>
+                        <div class="column">
+                            <label for="from">To Date:</label></br>
+                            <input class="form-control" name="to_date" type="date" > 
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">
+                            Search
+                        </button>
+                        {!! Form::close() !!}
                 <div class="content table-responsive table-full-width">
                     <table class="table table-striped">
                         <thead>

@@ -5,7 +5,7 @@ use App\Models\SubCategory;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-
+ 
 class SubCategoryController extends Controller
 {
     public function index() {

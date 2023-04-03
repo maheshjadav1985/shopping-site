@@ -53,7 +53,10 @@ Route::prefix('admin')->group(function() {
        Route::resource('/subcategories', 'App\Http\Controllers\SubCategoryController');
        Route::DELETE('/product-image-gallery/{id}', [ProductController::class, 'productImageDelete'])->name('product.image.gallery');
        Route::get('/products-lists', [ProductController::class, 'getProducts'])->name('products.list');
-
+     //  Route::get('/categories', [CategoryController::class, 'index']);
+        Route::POST('/searchcategories', [CategoryController::class, 'index']);
+      // Route::get('admin/searchcategories', [CategoryController::class, 'search']);
+       
        //Product Info
        Route::get('/productinfo/{id}', [ProductInfoController::class, 'index'])->name('productinfo.index');
        Route::get('/productinfo-list/{id}', [ProductInfoController::class, 'getProductsInfo'])->name('productinfo.list');

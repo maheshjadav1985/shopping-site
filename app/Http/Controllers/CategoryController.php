@@ -4,13 +4,29 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use DB;
 
 class CategoryController extends Controller
 {
-    public function index() {
+    public function index(Request $request) {
 
         $categories = Category::all();
 
+        if (request('name')) {
+              $categories = DB::table('categories')
+                    ->where('name', 'like', '%' .$request->input('name'). '%')
+                    ->get();
+        }
+        if (request('from_date') && request('to_date')) {
+            $categories = DB::table('categories')
+                  ->whereBetween('created_at',  [$request->input('from_date'), $request->input('to_date')])
+                 // ->where('model', '=', $request->input('model'))
+                //  ->where('fuel', '=', $request->input('fuel'))
+                 // ->where('gear', '=', $request->input('gear'))
+                 // ->whereBetween('price', [$from, $to])
+                  ->get();
+      }
+  
         return view('admin.categories.index', compact('categories'));
     }
 
